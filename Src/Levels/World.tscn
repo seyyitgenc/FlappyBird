@@ -1,0 +1,201 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Src/Actors/Bird.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Src/Levels/Walls.gd" type="Script" id=2]
+[ext_resource path="res://Assets/pipe.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 48.5, 255 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 48, 232 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 22, 76 )
+
+[node name="World" type="Node2D"]
+position = Vector2( -40, -20 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -377.0, -375.0, -71.0 ],
+"_edit_vertical_guides_": [ 680.0 ]
+}
+
+[node name="wallnode" type="Node2D" parent="."]
+position = Vector2( 1100, 300 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [ -48.0, 48.0 ]
+}
+
+[node name="Walls" type="StaticBody2D" parent="wallnode"]
+position = Vector2( 0, 14 )
+script = ExtResource( 2 )
+
+[node name="UpperWall" type="Sprite" parent="wallnode/Walls"]
+position = Vector2( 0, -300 )
+scale = Vector2( 0.979167, 0.74 )
+texture = ExtResource( 4 )
+
+[node name="UpperWallColl" type="CollisionShape2D" parent="wallnode/Walls"]
+position = Vector2( -0.5, -331 )
+shape = SubResource( 4 )
+
+[node name="LowerWall" type="Sprite" parent="wallnode/Walls"]
+position = Vector2( 6, 300 )
+rotation = -3.14159
+scale = Vector2( 0.997322, 0.738666 )
+texture = ExtResource( 4 )
+
+[node name="LowerWallColl" type="CollisionShape2D" parent="wallnode/Walls"]
+position = Vector2( 5, 309 )
+shape = SubResource( 5 )
+
+[node name="Point" type="Area2D" parent="wallnode/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallnode/Walls/Point"]
+shape = SubResource( 7 )
+
+[node name="wallnode2" type="Node2D" parent="."]
+position = Vector2( 670, 300 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [ -48.0, 48.0 ]
+}
+
+[node name="Walls" type="StaticBody2D" parent="wallnode2"]
+script = ExtResource( 2 )
+
+[node name="UpperWall" type="Sprite" parent="wallnode2/Walls"]
+position = Vector2( 0, -300 )
+scale = Vector2( 0.979167, 0.74 )
+texture = ExtResource( 4 )
+
+[node name="UpperWallColl" type="CollisionShape2D" parent="wallnode2/Walls"]
+position = Vector2( -0.5, -331 )
+shape = SubResource( 4 )
+
+[node name="LowerWall" type="Sprite" parent="wallnode2/Walls"]
+position = Vector2( 6, 300 )
+rotation = -3.14159
+scale = Vector2( 0.997322, 0.738666 )
+texture = ExtResource( 4 )
+
+[node name="LowerWallColl" type="CollisionShape2D" parent="wallnode2/Walls"]
+position = Vector2( 5, 309 )
+shape = SubResource( 5 )
+
+[node name="Point" type="Area2D" parent="wallnode2/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallnode2/Walls/Point"]
+shape = SubResource( 7 )
+
+[node name="wallnode3" type="Node2D" parent="."]
+position = Vector2( 890, 330 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [ -48.0, 48.0 ]
+}
+
+[node name="Walls" type="StaticBody2D" parent="wallnode3"]
+script = ExtResource( 2 )
+
+[node name="UpperWall" type="Sprite" parent="wallnode3/Walls"]
+position = Vector2( 0, -300 )
+scale = Vector2( 0.979167, 0.74 )
+texture = ExtResource( 4 )
+
+[node name="UpperWallColl" type="CollisionShape2D" parent="wallnode3/Walls"]
+position = Vector2( -0.5, -331 )
+shape = SubResource( 4 )
+
+[node name="LowerWall" type="Sprite" parent="wallnode3/Walls"]
+position = Vector2( 6, 300 )
+rotation = -3.14159
+scale = Vector2( 0.997322, 0.738666 )
+texture = ExtResource( 4 )
+
+[node name="LowerWallColl" type="CollisionShape2D" parent="wallnode3/Walls"]
+position = Vector2( 5, 309 )
+shape = SubResource( 5 )
+
+[node name="Point" type="Area2D" parent="wallnode3/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallnode3/Walls/Point"]
+shape = SubResource( 7 )
+
+[node name="wallnode4" type="Node2D" parent="."]
+position = Vector2( 1320, 340 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [ -48.0, 48.0 ]
+}
+
+[node name="Walls" type="StaticBody2D" parent="wallnode4"]
+script = ExtResource( 2 )
+
+[node name="UpperWall" type="Sprite" parent="wallnode4/Walls"]
+position = Vector2( 0, -300 )
+scale = Vector2( 0.979167, 0.74 )
+texture = ExtResource( 4 )
+
+[node name="UpperWallColl" type="CollisionShape2D" parent="wallnode4/Walls"]
+position = Vector2( -0.5, -331 )
+shape = SubResource( 4 )
+
+[node name="LowerWall" type="Sprite" parent="wallnode4/Walls"]
+position = Vector2( 6, 300 )
+rotation = -3.14159
+scale = Vector2( 0.997322, 0.738666 )
+texture = ExtResource( 4 )
+
+[node name="LowerWallColl" type="CollisionShape2D" parent="wallnode4/Walls"]
+position = Vector2( 5, 309 )
+shape = SubResource( 5 )
+
+[node name="Point" type="Area2D" parent="wallnode4/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallnode4/Walls/Point"]
+shape = SubResource( 7 )
+
+[node name="wallnode5" type="Node2D" parent="."]
+position = Vector2( 1540, 290 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [ -48.0, 48.0 ]
+}
+
+[node name="Walls" type="StaticBody2D" parent="wallnode5"]
+script = ExtResource( 2 )
+
+[node name="UpperWall" type="Sprite" parent="wallnode5/Walls"]
+position = Vector2( 0, -300 )
+scale = Vector2( 0.979167, 0.74 )
+texture = ExtResource( 4 )
+
+[node name="UpperWallColl" type="CollisionShape2D" parent="wallnode5/Walls"]
+position = Vector2( -0.5, -331 )
+shape = SubResource( 4 )
+
+[node name="LowerWall" type="Sprite" parent="wallnode5/Walls"]
+position = Vector2( 6, 300 )
+rotation = -3.14159
+scale = Vector2( 0.997322, 0.738666 )
+texture = ExtResource( 4 )
+
+[node name="LowerWallColl" type="CollisionShape2D" parent="wallnode5/Walls"]
+position = Vector2( 5, 309 )
+shape = SubResource( 5 )
+
+[node name="Point" type="Area2D" parent="wallnode5/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wallnode5/Walls/Point"]
+shape = SubResource( 7 )
+
+[node name="PlayerNode" parent="." instance=ExtResource( 1 )]
+position = Vector2( 368, 314 )
+
+[connection signal="body_entered" from="wallnode/Walls/Point" to="wallnode/Walls" method="_on_Point_body_entered"]
+[connection signal="body_entered" from="wallnode2/Walls/Point" to="wallnode2/Walls" method="_on_Point_body_entered"]
+[connection signal="body_entered" from="wallnode3/Walls/Point" to="wallnode3/Walls" method="_on_Point_body_entered"]
+[connection signal="body_entered" from="wallnode4/Walls/Point" to="wallnode4/Walls" method="_on_Point_body_entered"]
+[connection signal="body_entered" from="wallnode5/Walls/Point" to="wallnode5/Walls" method="_on_Point_body_entered"]
