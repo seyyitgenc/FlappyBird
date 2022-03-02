@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/flappyBird.png" type="Texture" id=1]
 [ext_resource path="res://Src/Actors/Bird.gd" type="Script" id=2]
@@ -12,7 +12,61 @@ radius = 15.2971
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 15, 172 )
 
+[sub_resource type="Animation" id=4]
+resource_name = "Boost"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bird/FlappyBird:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0035, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -44.9999 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Fall"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bird/FlappyBird:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 44.9999 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Bird/FlappyBird:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
 [node name="PlayerNode" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 1.0
+margin_top = -237.0
+margin_right = 41.0
+margin_bottom = -197.0
+visible_characters = 1
 
 [node name="Bird" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
@@ -31,21 +85,19 @@ position = Vector2( 1, 7 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Bird"]
-position = Vector2( 162, 0 )
-current = true
-zoom = Vector2( 0.6, 0.6 )
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Bird/Camera2D"]
-margin_left = -9.0
-margin_top = -95.0
-margin_right = 31.0
-margin_bottom = -55.0
+position = Vector2( 1, 0 )
 
 [node name="Resetter" type="Area2D" parent="Bird"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bird/Resetter"]
-position = Vector2( -269, 0 )
+position = Vector2( -754, -3 )
 shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bird"]
+root_node = NodePath("../..")
+anims/Boost = SubResource( 4 )
+anims/Fall = SubResource( 6 )
+anims/RESET = SubResource( 5 )
 
 [connection signal="area_entered" from="Bird/Detect" to="Bird" method="_on_Detect_area_entered"]
 [connection signal="body_entered" from="Bird/Detect" to="Bird" method="_on_Detect_body_entered"]
