@@ -23,8 +23,16 @@ __meta__ = {
 "_edit_vertical_guides_": [ 680.0 ]
 }
 
+[node name="Text" type="RichTextLabel" parent="."]
+margin_left = 339.0
+margin_top = 300.0
+margin_right = 479.0
+margin_bottom = 318.0
+text = "Press Button to Play"
+scroll_active = false
+
 [node name="PlayerNode" parent="." instance=ExtResource( 1 )]
-position = Vector2( 370, 330 )
+position = Vector2( 408, 343 )
 
 [node name="Point" type="CanvasLayer" parent="."]
 
@@ -257,5 +265,3 @@ shape = SubResource( 7 )
 [connection signal="body_entered" from="wallnode4/Walls/Point" to="wallnode4/Walls" method="_on_Point_body_entered"]
 [connection signal="body_entered" from="wallnode5/Walls/Point" to="wallnode5/Walls" method="_on_Point_body_entered"]
 [connection signal="body_entered" from="wallnode6/Walls/Point" to="wallnode6/Walls" method="_on_Point_body_entered"]
-
-[editable path="PlayerNode"]
