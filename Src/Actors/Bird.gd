@@ -4,7 +4,7 @@ const gravity=10
 const up = Vector2(0,-1)
 const flap = 200
 const maxfallspeed = 200
-export var turning = 70
+export var turning = 100
 var point: = 0
 var rot_degree=1
 var is_falling = true
@@ -40,7 +40,7 @@ func _physics_process(delta):
 
 func wall_reset():
 	var wall_instance = Wall.instance()
-	wall_instance.position=Vector2(440,rand_range(-180,60))
+	wall_instance.position=Vector2(640,rand_range(-180,60))
 	get_parent().call_deferred("add_child",wall_instance)
 
 

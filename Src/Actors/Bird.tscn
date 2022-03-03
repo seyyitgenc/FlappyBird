@@ -14,7 +14,7 @@ extents = Vector2( 15, 172 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "Boost"
-length = 0.4
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Bird/FlappyBird:rotation_degrees")
 tracks/0/interp = 1
@@ -22,7 +22,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.0035, 0.4 ),
+"times": PoolRealArray( 0.0035, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, -44.9999 ]
@@ -62,11 +62,13 @@ tracks/0/keys = {
 [node name="PlayerNode" type="Node2D"]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 1.0
-margin_top = -237.0
-margin_right = 41.0
-margin_bottom = -197.0
-visible_characters = 1
+margin_left = -2.0
+margin_top = -242.0
+margin_right = 38.0
+margin_bottom = -202.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
 [node name="Bird" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
