@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Src/Actors/Bird.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Levels/Walls.gd" type="Script" id=2]
 [ext_resource path="res://Assets/skybg.png" type="Texture" id=3]
 [ext_resource path="res://Assets/pipe.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=8]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 48.5, 255 )
@@ -22,7 +24,16 @@ __meta__ = {
 }
 
 [node name="PlayerNode" parent="." instance=ExtResource( 1 )]
-position = Vector2( 372, 314 )
+position = Vector2( 370, 330 )
+
+[node name="Point" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Point"]
+margin_left = 510.0
+margin_top = 40.0
+margin_right = 550.0
+margin_bottom = 80.0
+custom_fonts/mono_font = SubResource( 8 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
@@ -246,3 +257,5 @@ shape = SubResource( 7 )
 [connection signal="body_entered" from="wallnode4/Walls/Point" to="wallnode4/Walls" method="_on_Point_body_entered"]
 [connection signal="body_entered" from="wallnode5/Walls/Point" to="wallnode5/Walls" method="_on_Point_body_entered"]
 [connection signal="body_entered" from="wallnode6/Walls/Point" to="wallnode6/Walls" method="_on_Point_body_entered"]
+
+[editable path="PlayerNode"]
