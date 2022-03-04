@@ -8,19 +8,17 @@ const maxfallspeed = 200
 var point: = 0
 var rot_downward = 1
 var turning = 10
-var rot_upward = -1
-
+var highscore = 0
 onready var global_var=get_node("/root/Gloabl")
 
 onready var anim_player:AnimationPlayer=get_node("AnimationPlayer")
 
 var Wall = preload("res://Src/Levels/Walls.tscn")
-
 var motion = Vector2()
 
 func _ready():
-	pass
-# warning-ignore:unused_argument
+	highscore= global_var.load_highscore()
+	get_parent().get_parent().get_node("HighestScore").text=str(global_var.highscore)
 func _physics_process(delta):
 	if global_var.is_game_started == true:
 		motion.y += gravity
@@ -41,20 +39,26 @@ func _physics_process(delta):
 	get_parent().get_parent().get_node("Point/RichTextLabel").text=str(point)
 func wall_reset():
 	var wall_instance = Wall.instance()
-	wall_instance.position=Vector2(640,rand_range(-180,60))
+	wall_instance.position=Vector2(640,rand_range(-160,60))
 	get_parent().call_deferred("add_child",wall_instance)
 func _on_Detect_area_entered(area):
 	if area.name=="Point":
 		point+=1
+
 func _on_Detect_body_entered(body):
 	if body.name =="Walls":
 		global_var.is_game_started=false
 		get_parent().get_parent().get_node("Text").visible=true
 		get_tree().reload_current_scene()
+		if highscore<point:
+			global_var.highscore=point
+			global_var.save_highscore()
+
 func _on_Resetter_body_entered(body):
 	if body.name == "Walls":
 		body.queue_free()
 		wall_reset()
+
 func _on_Limiter_area_entered(area):
 	if area.name=="Detect":
 		global_var.is_game_started=false
